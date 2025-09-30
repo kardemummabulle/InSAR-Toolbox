@@ -1,7 +1,6 @@
 # InSAR-Toolbox
 
-**InSAR-Toolbox** is an ArcGIS-native toolbox/add-in with a companion R package **`{insar}`** for working with **EGMS** (European Ground Motion Service) InSAR data **inside ArcGIS**.  
-It was **inspired by** the QGIS plugin **InSAR Explorer** and aims to offer similar, streamlined workflows for the Esri ecosystem.
+**InSAR-Toolbox** is an ArcGIS-native toolbox/add-in with a companion R package **`{insar}`** for working with **EGMS** (European Ground Motion Service) InSAR data **inside ArcGIS**. It was **inspired by** the QGIS plugin **InSAR Explorer** and aims to offer similar, streamlined workflows for the Esri ecosystem.
 
 - **Data source:** European Ground Motion Service — https://egms.land.copernicus.eu/  
 - **Inspiration:** QGIS *InSAR Explorer* — https://plugins.qgis.org/plugins/insar_explorer-dev/
