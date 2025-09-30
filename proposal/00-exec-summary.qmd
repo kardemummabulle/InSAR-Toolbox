@@ -1,6 +1,40 @@
 # Executive Summary
 
-<!--
-This section provides a condensed view of the entire proposal, one page long.
-It should be a comprehensive high-level overview that captures the essence of the proposal, including its goals, methods, expected outcomes, deliverables, and budget.
--->
+## Overview
+**InSAR-Toolbox** is an open-source toolkit that brings EGMS InSAR data **into ArcGIS** with **R** workflows. Inspired by the QGIS *InSAR Explorer* plugin, **InSAR-Toolbox** delivers similar functionality in the Esri environment: download/import EGMS products, interactively explore deformation on the map, make per-point time-series plots and group plots, run lightweight analyses (quality control, filtering, interpolation), and export figures for reporting.
+
+## Goals
+- **Integrate with ArcGIS**: a lightweight toolbox/add-in that feels native to ArcGIS Pro and ArcGIS Online/Enterprise.
+- **End-to-end EGMS workflows**: download/import → visualize → analyze (plots, group plots, interpolation) → export.
+- **Reproducibility in R**: an R package that mirrors toolbox functions for scripted analyses.
+
+## Methods
+- **Tooling**: ArcGIS Pro toolbox/add-in for user workflows; R package `{insar}` for analysis/quality control and export.
+- **Data I/O**: EGMS readers producing `sf`/`data.table` objects with preserved time index, units, etc.
+- **Analytics**: robust trend analysis (regression, loess), outlier filtering, and spatial interpolation (IDW/kriging) for surface views.
+- **ArcGIS integration**: R–ArcGIS Bridge bringing `{insar}` functionality into ArcGIS.
+- **Quality**: reproducible examples, concise docs, and step-by-step tutorials.
+
+## Expected Outcomes
+- A working **ArcGIS toolbox/add-in** and a companion **R package** enabling hands-on EGMS InSAR analysis inside ArcGIS.
+- Documented, reproducible workflows from **download → visualize → analyze → export**.
+
+## Deliverables
+1. **InSAR-Toolbox (ArcGIS toolbox/add-in)**  
+   - EGMS import & data download helpers  
+   - Symbology and pop-ups with key stats  
+   - Per-point time-series and group plots with plot export
+   - Publish time-enabled Feature Layers/Image Services
+2. **R package `{insar}`**  
+   - EGMS I/O; quality control, trend analysis, change-point utilities  
+   - Interpolation helpers (IDW/kriging)  
+   - Publishing helpers via R-ArcGIS Bridge
+3. **Templates & Documentation**  
+   - End-to-end tutorials + API reference/vignettes
+4. **Sample Data & Reproducible Projects**  
+   - Small EGMS subsets with pinned scripts; CI-verified examples
+
+## Budget
+Requested amount: **USD 20,000**.
+
+The R package will provide functionality similar to the QGIS **InSAR Explorer** plugin: EGMS import, plotting, mapping/visualization, filtering, time-series plots, and interpolation.

@@ -1,50 +1,68 @@
 # The proposal
-<!--
-How are you going to solve the problem? Include the concrete actions you
-will take and an estimated timeline. What are likely failure modes and
-how will you recover from them?
-
-This is where the proposal should be outlined.
--->
 
 ## Overview
-<!--
-At a high-level address what your proposal is and how it will address
-the problem identified. Highlight any benefits to the R Community that
-follow from solving the problem. This should be your most compelling
-section.
+**InSAR-Toolbox** will deliver an **ArcGIS-native toolbox/add-in** and a companion **R package `{insar}`** that provide a simple, reproducible EGMS workflow inside ArcGIS:
+**download/import → visualize → analyze (per-point & group plots, quality control, interpolation) → export/publish**.
 
-Include concrete actions you will take and estimated timeline.
--->
+Inspired by the QGIS *InSAR Explorer* plugin, this project brings similar functionality to the **Esri** environment, plus scripted, reproducible R workflows and ready-to-share ArcGIS layers/plots.
+
+**Timeline (6 months)**
+- **M1–2:** MVP — import EGMS, per-point plotting; minimal toolbox; `{insar}` scaffolding & tests.  
+- **M3–4:** Group plots, plot export (PNG/SVG), QC & trend methods; publish time-enabled layers.  
+- **M5–6:** Interpolation (IDW/kriging), perf pass; v1.0 release with docs and examples.
 
 ## Detail
-<!--
-Go into more detail about the specifics of the project and how it delivers
-against the problem.
-
-Depending on project type the detail section should include:
--->
 
 ### Minimum Viable Product
-
-<!--
-What is the smallest thing you can build that delivers value to your users?
--->
+- EGMS import with validation (CRS, units, time index).
+- Per-point time-series plot on map click; key stats in popup.
+- `{insar}` functions: `egms_read_*()`, `ts_plot_point()`, `qc_flag_outliers()`.
+- Quickstart tutorial + sample data.
 
 ### Architecture
+**ArcGIS Pro toolbox/add-in (“InSAR-Toolbox”)**
+- Tools: `EGMS Download/Import`, `Create Time-Enabled Layer`, `Open Time-Series Plot`, `Export Plot`.
+- UX: symbology, map↔chart linking, AOI/selection for group plots.
 
-<!--
-What does the high-level architecture look like?
--->
+**R package `{insar}`**
+- I/O: EGMS readers → `sf`/`data.table` (and `stars` if needed); strict validators.
+- Analysis: QC (outliers), trend (robust/loess), interpolation (IDW/kriging).
+- Viz: `ts_plot_point()`, `ts_plot_group()`, `ts_export_plot()`.
+- Publishing: helpers to create time-enabled Feature Layers/Image Services via R–ArcGIS Bridge.
+
+**Docs & CI**
+- Quarto site with two end-to-end tutorials; GitHub Actions for package checks/tests.
 
 ### Assumptions
-
-<!--
-What assumptions are you making that, if proven false, would invalidate the project?
--->
+- EGMS access/format are stable enough for deterministic readers.
+- Users have **ArcGIS Pro** and can enable **R-ArcGIS Bridge**.
+- The project **consumes** EGMS outputs (no upstream InSAR processing).
 
 ### External dependencies
+- **ArcGIS Pro** (+ ArcGIS Online/Enterprise for publishing).
+- **R–ArcGIS Bridge**.
+- R: `sf`, `data.table`, `ggplot2`, `gstat` (kriging), `stars` (optional).
 
-<!--
-What external dependencies does the project have (e.g. libraries, services, other projects, etc.)?
--->
+### Work plan
+**Month 1–2 — Foundations (v0.1 / MVP)**
+- Implement EGMS readers + validators; define data classes/units.
+- Minimal toolbox: Import → time-enabled layer; per-point plot panel.
+- `{insar}`: `egms_read_*()`, `qc_flag_outliers()`, `ts_plot_point()`.
+- Quickstart tutorial.
+
+**Month 3–4 — Plotting & Publishing (v0.3)**
+- Group plots (AOI/selection); plot export (PNG/SVG); symbology presets.
+- Trend methods (robust/loess); publish time-enabled layers (Bridge).
+- Tutorial #1: “EGMS → ArcGIS web layer”.
+
+**Month 5–6 — Interpolation & Release (v1.0)**
+- Interpolation helpers (IDW/kriging) for velocity/displacement surfaces (clearly labeled as modeled).
+- Tutorial #2: “Reproducible QC with `{insar}`”; finalize docs & API reference.
+- Performance pass; v1.0 tagged release.
+
+### Deliverables
+1. **InSAR-Toolbox (ArcGIS toolbox/add-in)** — EGMS import/download, time-aware symbology, per-point & group plots, plot export, publishing.  
+2. **R package `{insar}`** — EGMS I/O, QC, trend, interpolation, plotting, publishing helpers.  
+3. **Documentation & Templates** — End-to-end tutorials, API reference.  
+4. **Sample data & CI** — Small EGMS fixture; automated tests; reproducible examples.  
+5. **v1.0 release** — Tagged, with changelog and a short recorded walkthrough.

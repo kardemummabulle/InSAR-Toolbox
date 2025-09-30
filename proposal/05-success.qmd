@@ -1,22 +1,31 @@
 # Success
-<!--
-Projects should have a definition of done that is measurable, and a
-thorough understanding going in of what the risks are to delivery
--->
 
 ## Definition of done
-<!--
-What does success look like?
--->
+- **Functionality (v1.0):**
+  - InSAR-Toolbox (ArcGIS toolbox/add-in) supports EGMS download/import, per-point and group plots, QC/filtering, interpolation (IDW/kriging), plot export (PNG/SVG), and time-enabled layer publishing.
+  - R package **`{insar}`** provides EGMS I/O, QC, trend utilities, interpolation, plotting helpers, and minimal publishing helpers.
+- **Documentation:**
+  - End-to-end tutorials, API reference.
+- **Reproducibility & quality:**
+  - Sample EGMS fixture in repo, deterministic examples, and automated CI.
+- **Release:**
+  - Tagged v1.0 with changelog and a short recorded walkthrough.
 
 ## Measuring success
-<!--
-How will we know when success is achieved, what markers can we use
-along the way
--->
+- **User tasks (acceptance tests):**
+  1. Import EGMS sample → create time-enabled layer → click a point → see correct time series.  
+  2. Select AOI → generate group plot → export PNG.  
+  3. Run `{insar}` script to reproduce the plot and apply QC flags.  
+  4. Publish a time-enabled feature layer and open it in ArcGIS Online.
+- **Adoption (within 3–6 months of v1.0):**
+  - ≥3 external organizations run both tutorials end-to-end and provide feedback.
+- **Performance:**
+  - Per-point plot renders in ≤1 s on the sample dataset on a standard laptop; group plot ≤3 s for typical AOI (document dataset sizes/hardware).
+- **Quality signals:**
+  - Median issue time-to-first-response ≤5 business days; duplicated bug reports trending down after v1.0.
+  - Zero blocking defects open >30 days.
 
 ## Future work
-<!--
-How could this be extended / developed in the future by yourself
-and/or the community in general?
--->
+- **More analysis**: seasonality/acceleration checks and simple change-point flags with uncertainty hints.
+- **Sharing**: ready-to-use ArcGIS Dashboard/Instant App examples.
+- **Community**: clear CONTRIBUTING guide, “good first issue” labels, and periodic maintenance releases.

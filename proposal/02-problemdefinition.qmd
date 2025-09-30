@@ -1,24 +1,24 @@
----
-bibliography: references.bib
----
-
 # The Problem
 
-```{=html}
-<!--
-Outlining the issue / weak point / problem to be solved by this
-proposal. This should be a compelling section that sets the reader up
-for the next section - the proposed solution!
+## What the problem is
+European Ground Motion Service (EGMS) InSAR data are increasingly used for subsidence, landslide, and infrastructure monitoring. Yet within **ArcGIS** there is no lightweight, open, and reproducible way to download/import EGMS data, interactively explore per-point time series, make group plots, run basic quality control and analysis, and export figures or publish time-enabled layers. Typical workflows jump between scripts and ad-hoc exports slowing the analytical pipeline and therefore hampering the decision-making process.
 
-It is important to cover:
+## Who it affects
+- **Public agencies & infrastructure owners** who need routine screening, hotspot tracking, and a robust tool for EGMS data analysis inside ArcGIS.  
+- **Consultancies** tasked with site investigations and ongoing monitoring who must deliver ArcGIS-ready outputs.  
+- **Researchers & educators** who want scripted, reproducible analyses in **R** that integrates smoothly with ArcGIS.
 
- - [ ] What the problem is
- - [ ] Who it affects
- - [ ] Why is it a problem
- - [ ] What will solving the problem enable (why should it be solved)
- - [ ] Brief summary of existing work and previous attempts (e.g., relevant R packages)
- - [ ] If proposing changes to R itself: letter of support from R Core member
--->
-```
+## Why this is a problem
+There’s no ArcGIS-native way to work with EGMS end-to-end, so users can’t run a simple, reproducible workflow from download to analysis to output.
 
-An example in-text citation [@wickham2016].
+## Why the problem should be solved
+- **Direct client demand.** Total Digital IT Solutions Sweden AB, as an asset management company, repeatedly receives requests from ArcGIS-based clients for a simple EGMS workflow they can run inside ArcGIS (not in separate scripts or other GIS).
+- **Operational impact.** A native toolbox cuts routine tasks from hours to minutes, enabling faster decision-making process.
+- **Consistency and trust.** A single, documented workflow (toolbox + `{insar}` API) replaces ad-hoc scripts and copy-paste cartography, improving traceability, QA, and auditability for internal reviews and regulatory reporting.
+- **Shareable results.** Optional time-enabled layers and clean plot exports make it easy to brief stakeholders and integrate with existing ArcGIS dashboards without extra tools.
+- **Community benefit.** Packaging common EGMS tasks in an open R API and ArcGIS toolbox lowers the barrier for other R/ArcGIS users to adopt reproducible InSAR analysis, extending value beyond a single project.
+
+## Existing work and gaps
+- **QGIS InSAR Explorer** demonstrates demand for dynamic InSAR exploration in a desktop GIS, but there is no ArcGIS equivalent.  
+- **Ad-hoc R/Python scripts** can parse EGMS and plot time series, but lack an ArcGIS-native user experience, consistent symbology, publishing helpers, and a maintained package interface.  
+- **ArcGIS tools and the R–ArcGIS Bridge** enable integration, but there is no focused, open toolkit that ties EGMS I/O, plotting (per-point and group), quality control, interpolation, and time-enabled publishing into one coherent workflow.

@@ -1,10 +1,10 @@
 ---
-title: "Proposal Title"
+title: "InSAR Toolbox"
 author:
-  - name: Annie Easley
-    orcid: 5555-5555-5555-5555
+  - name: Svetlana Serikova
+    orcid: 0000-0002-2319-8190
     affiliations:
-      - "Lewis Research Center, National Aeronautics and Space Administration"
+      - "Total Digital IT Solutions Sweden AB "
 
 date: today
 date-format: iso
