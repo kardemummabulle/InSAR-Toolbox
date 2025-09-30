@@ -7,7 +7,7 @@ It was **inspired by** the QGIS plugin **InSAR Explorer** and aims to offer simi
 - **Inspiration:** QGIS *InSAR Explorer* — https://plugins.qgis.org/plugins/insar_explorer-dev/
 
 ## What it does
-- **Download / import** EGMS point time series (tiles/points) into ArcGIS.
+- **Download / import** EGMS data into ArcGIS.
 - **Explore** deformation on the map with **per-point** and **group** time-series plots.
 - **Analyze** with light **QC**, trend summaries, and **interpolation** (IDW/kriging) for screening surfaces.
 - **Export** plots (PNG/SVG) and publish **time-enabled** layers for dashboards.

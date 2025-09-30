@@ -4,7 +4,7 @@ author:
   - name: Svetlana Serikova
     orcid: 0000-0002-2319-8190
     affiliations:
-      - "Total Digital IT Solutions Sweden AB "
+      - "Total Digital IT Solutions Sweden AB"
 
 date: today
 date-format: iso
@@ -15,7 +15,6 @@ format:
     geometry:
       - left=1.25in
       - right=1.25in
-bibliography: references.bib
 ---
 
 # 🚧🚧🚧 UNDER CONSTRUCTION 🚧🚧🚧
@@ -34,6 +33,3 @@ An update will be released in early September 2025.
 {{< include proposal/04-timeline.qmd >}}
 
 {{< include proposal/05-success.qmd >}}
-
-::: refs
-:::
